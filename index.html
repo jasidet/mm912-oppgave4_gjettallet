@@ -9,7 +9,7 @@
 
 <body>
 
-<!-- Dynamisk innhold script tag er i slutten av body framfor i <head> 
+    <!-- Dynamisk innhold script tag er i slutten av body framfor i <head> 
         I denne oppgaven skal du gjenskape spillet gjett tallet mitt uten annet utover det vi har diskutert av HTML og Javascript så langt.
         Vi legger ved en html template fil, ditt arbeid skal ligge innen for body taggen. Husk at javascript kode må ligge innen for en script tag.
     -->
@@ -61,7 +61,7 @@
             Antallforsøk = Antallforsøk + 1;
             Valgtverdi = document.getElementById('numb').value;
             //alert (Valgtverdi);
-            
+
             if (Valgtverdi == Tilfeldigtall) {
                 document.getElementById("beskjed").innerHTML = "Tallet " + Tilfeldigtall + " er korrekt!  Du klarte det på " + Antallforsøk + " forsøk";
                 document.getElementById("start").disabled = false;
@@ -81,7 +81,7 @@
                 testverdi();
             }
         })
-    </script>    
+    </script>
 
 </body>
 
