@@ -8,22 +8,80 @@
 </head>
 
 <body>
+
 <!-- Dynamisk innhold script tag er i slutten av body framfor i <head> 
-  
--->
+        I denne oppgaven skal du gjenskape spillet gjett tallet mitt uten annet utover det vi har diskutert av HTML og Javascript så langt.
+        Vi legger ved en html template fil, ditt arbeid skal ligge innen for body taggen. Husk at javascript kode må ligge innen for en script tag.
+    -->
 
 
+    <!-- c:\Users\LAB_KV~1\AppData\Local\Temp\guessMyNumber.png -->
+
+    <h1> Gjett et tall mellom 0 og 100 </h1>
+    <p>
+        Jeg har valgt et tall mellom 0 og 100
+    </p>
+
+    <p>
+        <img alt="Bilde som viser noen tall som er gjettet." src="./bilde.png" width="30%">
+        <!-- <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"> -->
+    </p>
 
 
+    <h1> Da er min versjon i gang</h1>
+
+    <p>
+        Jeg har valgt et tall mellom 0 og 100, gjett tallet mitt.
+    </p>
+
+    <button id="start" onclick="start()">Start nytt spill </button>
+
+    <h3>
+        Velg et tall mellom 0 og 100: <input type="number" id="numb">
+        <button id="test" onclick="testverdi()">Sjekk tallet </button>
+    </h3>
+
+    <h3 id="beskjed"></h3>
 
 
+    <script>
+        var Antallforsøk;
+        var Tilfeldigtall;
+        document.getElementById("test").disabled = true;
+        // alert("test");
 
+        function start() {
+            Antallforsøk = 0;
+            Tilfeldigtall = Math.floor(Math.random() * 100);
+            document.getElementById("start").disabled = true;
+            document.getElementById("test").disabled = false;
+        }
 
+        function testverdi() {
+            Antallforsøk = Antallforsøk + 1;
+            Valgtverdi = document.getElementById('numb').value;
+            //alert (Valgtverdi);
+            
+            if (Valgtverdi == Tilfeldigtall) {
+                document.getElementById("beskjed").innerHTML = "Tallet " + Tilfeldigtall + " er korrekt!  Du klarte det på " + Antallforsøk + " forsøk";
+                document.getElementById("start").disabled = false;
+                document.getElementById("test").disabled = true;
+            }
+            if (Valgtverdi > Tilfeldigtall) {
+                document.getElementById("beskjed").innerHTML = "Forsøk nr " + Antallforsøk + ": Tallet " + Valgtverdi + " er for stort tall, velg et nytt mindre tall";
+            }
+            if (Valgtverdi < Tilfeldigtall) {
+                document.getElementById("beskjed").innerHTML = "Forsøk nr " + Antallforsøk + ": Tallet " + Valgtverdi + " er for lite tall, velg et nytt større tall";
+            }
 
+        }
 
-
-
-
+        document.addEventListener("keypress", function (event) {
+            if (event.keyCode == 13) {
+                testverdi();
+            }
+        })
+    </script>    
 
 </body>
 
